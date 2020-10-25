@@ -184,11 +184,12 @@ class Posts extends Controller
               if ($type == "image/png" || $type == "image/jpeg") {
                 $img = preg_replace('/^data:image\/(png|jpeg);base64,/', "", $_POST['picture']);
                 $filter = preg_replace('/^data:image\/(png|jpeg);base64,/', "", $_POST['filterupload']);
-                $new_image = $this->merge_img($img, $filter, $type);
-                if ($this->postModel->create_post($new_image, $title, $description))
-                  redirect('posts/upload');
-                else
-                  flash('error-post', 'Your Post was not created plz retry again', 'notification is-danger is-light');
+                //$new_image = $this->merge_img($img, $filter, $type);
+                $this->merge_img($img, $filter, $type);
+                // if ($this->postModel->create_post($new_image, $title, $description))
+                //   redirect('posts/upload');
+                // else
+                //   flash('error-post', 'Your Post was not created plz retry again', 'notification is-danger is-light');
               } else
                 flash('error-post', 'Your Picture type is not valid plz retry again', 'notification is-danger is-light');
             } else
