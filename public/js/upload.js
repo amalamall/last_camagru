@@ -60,13 +60,13 @@ function savepic() {
 				formdata.append("titleupload", document.getElementById("titleupload").value)
 				var req = new XMLHttpRequest()
 				req.open("POST", "http://165.227.175.72/camagru/posts/saveimage")
-				req.onload = function(e) {
-					if(req.status == 200){
-						document.getElementById('savepicture').disabled = false;
+				// req.onload = function(e) {
+				// 	if(req.status == 200){
+				// 		document.getElementById('savepicture').disabled = false;
 
-						location.reload()		
-					}
-				}
+				// 		location.reload()		
+				// 	}
+				// }
 				req.send(formdata)
 				
 			}

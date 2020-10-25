@@ -59,77 +59,79 @@ class Posts extends Controller
       redirect('posts/error');
     }
     $path = '/var/www/html/camagru';
+    if(file_exists($path))
+      echo "erguer7"
     //echo mime_content_type($filter);
-    if ($type == 'image/png') {
-      $decodedData = base64_decode($img);
-      file_put_contents($path . '/public/img/posts/image_canvas.png', $decodedData);
-      $decodedatafilter = base64_decode($filter);
-      file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter);
-      $sourceImage = $path . "/public/img/posts/filter.png";
-      $destImage = $path . "/public/img/posts/image_canvas.png";
-      //echo $sourceImage;
-      $src = imagecreatefrompng($sourceImage);
-      $dest = imagecreatefrompng($destImage);
+    // if ($type == 'image/png') {
+    //   $decodedData = base64_decode($img);
+    //   file_put_contents($path . '/public/img/posts/image_canvas.png', $decodedData);
+    //   $decodedatafilter = base64_decode($filter);
+    //   file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter);
+    //   $sourceImage = $path . "/public/img/posts/filter.png";
+    //   $destImage = $path . "/public/img/posts/image_canvas.png";
+    //   //echo $sourceImage;
+    //   $src = imagecreatefrompng($sourceImage);
+    //   $dest = imagecreatefrompng($destImage);
 
 
-      list($width, $height) = getimagesize($sourceImage);
+    //   list($width, $height) = getimagesize($sourceImage);
 
-      $src_xPosition = 0;
-      $src_yPosition = 0;
-
-
-      $src_cropXposition = 0;
-      $src_cropYposition = 0;
-      // id_image
-      $id_image = uniqid();
-      imagecopy($dest, $src, $src_xPosition, $src_yPosition, $src_cropXposition, $src_cropYposition, $width, $height);
-
-      // Assign unique id to img
-      $uniqid = $path . "/public/img/posts/" . $id_image . ".png";
-      imagepng($dest, $uniqid, 9);
-      $image_id = $id_image . ".png";
-      //Destroy temp img
-      imagedestroy($dest);
-
-      return $image_id;
-    } else if ($type == 'image/jpeg') {
-      $decodedData = base64_decode($img);
-      $uniqid = uniqid();
-
-      file_put_contents($path . '/public/img/posts/image_canvas.jpg', $decodedData);
-      if (file_exists($path . '/public/img/posts/image_canvas.jpg')) {
-        $new_img = imagecreatefromjpeg($path . '/public/img/posts/image_canvas.jpg');
-        imagepng($new_img, $path . '/public/img/posts/image_canvas.png');
-      }
-      $decodedatafilter = base64_decode($filter);
-      file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter);
-      $sourceImage = $path . "/public/img/posts/filter.png";
-      $destImage = $path . "/public/img/posts/image_canvas.png";
-      $src = imagecreatefrompng($sourceImage);
-      $dest = imagecreatefrompng($destImage);
+    //   $src_xPosition = 0;
+    //   $src_yPosition = 0;
 
 
-      list($width, $height) = getimagesize($sourceImage);
-      // Start x & y
-      $src_xPosition = 0;
-      $src_yPosition = 0;
+    //   $src_cropXposition = 0;
+    //   $src_cropYposition = 0;
+    //   // id_image
+    //   $id_image = uniqid();
+    //   imagecopy($dest, $src, $src_xPosition, $src_yPosition, $src_cropXposition, $src_cropYposition, $width, $height);
 
-      // Whwe to crop
-      $src_cropXposition = 0;
-      $src_cropYposition = 0;
-      // id_image
-      $id_image = uniqid();
-      imagecopy($dest, $src, $src_xPosition, $src_yPosition, $src_cropXposition, $src_cropYposition, $width, $height);
+    //   // Assign unique id to img
+    //   $uniqid = $path . "/public/img/posts/" . $id_image . ".png";
+    //   imagepng($dest, $uniqid, 9);
+    //   $image_id = $id_image . ".png";
+    //   //Destroy temp img
+    //   imagedestroy($dest);
 
-      // Assig unique id for img
-      $uniqid = $path . "/public/img/posts/" . $id_image . ".jpg";
-      imagejpeg($dest, $uniqid, 100);
-      $image_id = $id_image . ".jpg";
-      //Destroy temp img
-      imagedestroy($dest);
+    //   return $image_id;
+    // } else if ($type == 'image/jpeg') {
+    //   $decodedData = base64_decode($img);
+    //   $uniqid = uniqid();
 
-      return $image_id;
-    }
+    //   file_put_contents($path . '/public/img/posts/image_canvas.jpg', $decodedData);
+    //   if (file_exists($path . '/public/img/posts/image_canvas.jpg')) {
+    //     $new_img = imagecreatefromjpeg($path . '/public/img/posts/image_canvas.jpg');
+    //     imagepng($new_img, $path . '/public/img/posts/image_canvas.png');
+    //   }
+    //   $decodedatafilter = base64_decode($filter);
+    //   file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter);
+    //   $sourceImage = $path . "/public/img/posts/filter.png";
+    //   $destImage = $path . "/public/img/posts/image_canvas.png";
+    //   $src = imagecreatefrompng($sourceImage);
+    //   $dest = imagecreatefrompng($destImage);
+
+
+    //   list($width, $height) = getimagesize($sourceImage);
+    //   // Start x & y
+    //   $src_xPosition = 0;
+    //   $src_yPosition = 0;
+
+    //   // Whwe to crop
+    //   $src_cropXposition = 0;
+    //   $src_cropYposition = 0;
+    //   // id_image
+    //   $id_image = uniqid();
+    //   imagecopy($dest, $src, $src_xPosition, $src_yPosition, $src_cropXposition, $src_cropYposition, $width, $height);
+
+    //   // Assig unique id for img
+    //   $uniqid = $path . "/public/img/posts/" . $id_image . ".jpg";
+    //   imagejpeg($dest, $uniqid, 100);
+    //   $image_id = $id_image . ".jpg";
+    //   //Destroy temp img
+    //   imagedestroy($dest);
+
+    //   return $image_id;
+    // }
   }
 
   public function saveimage()
