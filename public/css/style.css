@@ -1,0 +1,52 @@
+.footer-style {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+   .input{
+   border-width:1px;
+    border-radius:15px;
+   }
+
+
+#canvas_f
+{
+  
+  position: absolute;
+  padding: 0;
+  top: 67px;
+}
+.video-wrap
+{
+  width: 680px;
+  height : 480px;
+  top:0;
+}
+
+#canvas{
+  width: 680px;
+  height : 480px;
+}
+
+#snap{
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
