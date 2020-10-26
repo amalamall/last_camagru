@@ -61,7 +61,7 @@ class Posts extends Controller
     $path = '/var/www/html/camagru';
     if(file_exists($path))
       echo "erguer7";
-      exit($path);
+      die($path);
     //echo mime_content_type($filter);
     // if ($type == 'image/png') {
     //   $decodedData = base64_decode($img);
