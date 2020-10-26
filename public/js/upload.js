@@ -25,8 +25,8 @@ function savepic() {
 	if (ok == 1) {
 		message.style.display = "none";
 		if (filter != 'on' && filter != '') {
-			const myNode = document.getElementById("filter_canvas");
-			myNode.removeChild(myNode.firstChild);
+			// const myNode = document.getElementById("filter_canvas");
+			// myNode.removeChild(myNode.firstChild);
 			width = pictureupload.clientWidth;
 			height = pictureupload.clientHeight;
 			const canvas = document.createElement('canvas');
@@ -38,7 +38,7 @@ function savepic() {
 			var context = canvas.getContext('2d');
 			//Draw the image onto the canvas.
 			context.drawImage(imgObj, 0, 0, canvas.width, canvas.height);
-			document.getElementById('filter_canvas').appendChild(context.canvas);
+			// document.getElementById('filter_canvas').appendChild(context.canvas);
 			picture_upload = document.getElementById("pictureupload").src;
 			const canvas_i = document.createElement('canvas');
 			canvas_i.id = 'canvas_i';
