@@ -62,9 +62,9 @@ class Posts extends Controller
     //echo mime_content_type($filter);
     if ($type == 'image/png') {
       $decodedData = base64_decode($img);
-      file_put_contents($path . '/public/img/posts/image_canvas.png', $decodedData);
+      file_put_contents($path . '/public/img/posts/image_canvas.png', $decodedData) or print_r(error_get_last());
       $decodedatafilter = base64_decode($filter);
-      file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter);
+      file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter) or print_r(error_get_last());;
       $sourceImage = $path . "/public/img/posts/filter.png";
       $destImage = $path . "/public/img/posts/image_canvas.png";
       //echo $sourceImage;
@@ -96,13 +96,13 @@ class Posts extends Controller
       $decodedData = base64_decode($img);
       $uniqid = uniqid();
 
-      file_put_contents($path . '/public/img/posts/image_canvas.jpg', $decodedData);
+      file_put_contents($path . '/public/img/posts/image_canvas.jpg', $decodedData) or print_r(error_get_last());
       if (file_exists($path . '/public/img/posts/image_canvas.jpg')) {
         $new_img = imagecreatefromjpeg($path . '/public/img/posts/image_canvas.jpg');
         imagepng($new_img, $path . '/public/img/posts/image_canvas.png');
       }
       $decodedatafilter = base64_decode($filter);
-      file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter);
+      file_put_contents($path . '/public/img/posts/filter.png', $decodedatafilter) or print_r(error_get_last());;
       $sourceImage = $path . "/public/img/posts/filter.png";
       $destImage = $path . "/public/img/posts/image_canvas.png";
       $src = imagecreatefrompng($sourceImage);
