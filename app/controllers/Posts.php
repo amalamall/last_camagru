@@ -58,7 +58,7 @@ class Posts extends Controller
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       redirect('posts/error');
     }
-    $path = '/web/www/camagru';
+    $path = $_SERVER['DOCUMENT_ROOT'].'/camagru';
     //echo mime_content_type($filter);
     if ($type == 'image/png') {
       $decodedData = base64_decode($img);
