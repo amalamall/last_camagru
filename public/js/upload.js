@@ -64,7 +64,7 @@ function savepic() {
 					if(req.status == 200){
 						document.getElementById('savepicture').disabled = false;
 
-						//location.reload()		
+						location.reload()		
 					}
 				}
 				req.send(formdata)
