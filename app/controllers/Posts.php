@@ -137,6 +137,7 @@ class Posts extends Controller
 
   public function saveimage()
   {
+    die("here");
     if ($_SERVER['REQUEST_METHOD'] == 'GET' ) {
       redirect('posts/error');
     }
